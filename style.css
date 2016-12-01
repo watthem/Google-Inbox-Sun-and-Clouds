@@ -1,0 +1,209 @@
+body {
+  -webkit-transition: background-color ease-in-out 1s;
+  transition: background-color ease-in-out 1s;
+  background-color: #f2f2f2;
+}
+
+.sky {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 95vmin;
+  height: 95vmin;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: 1vmin solid #639bf6;
+  border-bottom: none;
+  border-radius: 50%;
+  background: #7baaf7;
+  overflow: hidden;
+}
+
+.sun-container {
+  position: relative;
+  top: 33%;
+  left: 33%;
+  width: 33%;
+  height: 33%;
+}
+
+.sun {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fae65c;
+}
+
+.ray {
+  background-color: #f9e294
+}
+
+.squared {
+  background-image: -webkit-linear-gradient(top left, #f9e294 25%, #7c612b 100%);
+  background-image: linear-gradient(to bottom right, #f9e294 25%, #7c612b 100%);
+}
+
+.rotated {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  background-image: -webkit-linear-gradient(left, #e7b439 25%, #7c612b 100%);
+  background-image: linear-gradient(to right, #e7b439 25%, #7c612b 100%);
+}
+
+.orb {
+  border-radius: 50%;
+  background-image: -webkit-linear-gradient(top left, #fae65c 50%, #fae452 100%);
+  background-image: linear-gradient(to bottom right, #fae65c 50%, #fae452 100%);
+  -webkit-transition: box-shadow 1s ease-in-out;
+  transition: box-shadow 1s ease-in-out;
+}
+
+.glow {
+  box-shadow: 0 0 30vmin 0 #fae452;
+  -webkit-animation-name: shine;
+  animation-name: shine;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+.cloud {
+  width: 15vmin;
+  height: 5vmin;
+  -webkit-animation-name: fluffy;
+  animation-name: fluffy;
+  -webkit-animation-timing-function: cubic-bezier(0.1, 0.7, 0.5, 0.1);
+  animation-timing-function: cubic-bezier(0.1, 0.7, 0.5, 0.1);
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  border-top-left-radius: 20% 55%;
+  border-top-right-radius: 70%;
+  border-bottom-right-radius: 5% 25%;
+  border-bottom-left-radius: 5% 35%;
+}
+
+.cloud,
+.cloud:before,
+.cloud:after {
+  position: absolute;
+  background-color: white;
+}
+
+.cloud:before,
+.cloud:after {
+  content: '';
+  border-radius: 50%;
+}
+
+.cloud:before {
+  top: -85%;
+  left: 15%;
+  width: 50%;
+  height: 175%;
+}
+
+.cloud:after {
+  top: -50%;
+  left: 50%;
+  width: 40%;
+  height: 125%;
+}
+
+.alpha {
+  top: 50%;
+  left: 50%;
+  -webkit-animation-duration: 10s;
+  animation-duration: 10s;
+  box-shadow: -.1em .1em 2.5em .1em #999;
+}
+
+.beta {
+  top: 20%;
+  left: 20%;
+  height: 5%;
+  width: 15%;
+  -webkit-animation-duration: 15s;
+  animation-duration: 15s;
+  opacity: .7;
+}
+
+.charlie {
+  top: 10%;
+  left: 50%;
+  height: 3%;
+  width: 9%;
+  -webkit-animation-duration: 20s;
+  animation-duration: 20s;
+  opacity: .4;
+}
+
+/* break points */
+
+@media only screen and (max-width: 500px) {
+  ::-webkit-scrollbar {
+    display: none;
+    /* yuck but, quick hack to fix scroll bar that updates with animation */
+  }
+  body {
+    background-color: #7baaf7;
+  }
+  .sky {
+    border: none;
+    overflow: visible;
+    scroll-y: none;
+  }
+}
+
+
+/* animations */
+
+@-webkit-keyframes shine {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes shine {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes fluffy {
+  from {
+    -webkit-transform: translateX(-100vw);
+    transform: translateX(-100vw);
+  }
+  to {
+    -webkit-transform: translateX(100vw);
+    transform: translateX(100vw);
+  }
+}
+
+@keyframes fluffy {
+  from {
+    -webkit-transform: translateX(-100vw);
+    transform: translateX(-100vw);
+  }
+  to {
+    -webkit-transform: translateX(100vw);
+    transform: translateX(100vw);
+  }
+}
